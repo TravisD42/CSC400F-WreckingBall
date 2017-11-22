@@ -7,7 +7,6 @@ var phongShader = new Shader("phong_vertex_shader", "phong_fragment_shader");
 
 registerShape('ground',[0.3,0.3,0.3]);
 registerShape('launcher_source',[1,1,1]);
-registerShape('test',[1,1,1]);
 
 //Projection matrix
 var prj = mat4.create();
@@ -92,12 +91,6 @@ function Draw(now) {
 }
 
 var drawinCube = new Cube();
-
-var sphere = new WrappedSphere(72, 36, 0, 360);
-sphere.Initialize();
-var drawingShape = sphere;
-
-
 function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3, arg4) {
     for (i in shapes) {
         gl.useProgram(shader_program);
@@ -148,7 +141,6 @@ function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3
 
                 //drawinCube.SetColor(shape.color);
                 drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
-               // drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
             }
         }
     }

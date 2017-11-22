@@ -23,68 +23,6 @@ var world = new OIMO.World({
     attachMaterialToShape('ground');
 })();
 
-// (function (){
-//     var y = 6;
-//     for (let i = 0; i < 5; i++)
-//     {
-//             var sphere_pos = [-15,y,0];
-//             var test = world.add({
-//                 type: 'box', // type of shape : sphere, box, cylinder 
-//                 size: [1.5,1.5,1.5], // size of shape
-//                 pos: sphere_pos, // start position in degree
-//                 move: i != 4, // dynamic or static
-//                 density: 4,
-//                 friction: 1,
-//                 restitution: 0,
-//                 kinematic: false,
-//                 belongsTo:1
-//             });
-//             attachOimoObjectToShape('test',test);
-//             attachMaterialToShape('test');
-//         });
-//         y += 3.5;
-//     }
-
-//     // now make the joints to connect the spheres
-
-// for(var j = 0; i < 5; i++)
-//     {
-//         world.add({
-//             type: 'jointHinge',
-//             body1: test[i],
-//             body2: test[i + 1],
-//             pos1: [0,1.75,0],
-//             pos2: [0, -1.75, 0],
-//             collision: true,
-//         });
-//     }
-(function (){
-    var y = 4;
-    for (var i = 0; i < 10; i++)
-    {
-        oimo_chain.push(oimo_world.add({ 
-            type:'sphere', // type of shape : sphere, box, cylinder 
-            size: [1.5], // size of shape
-            pos:[0, y, 0], // start position in degree
-            rot:[0,0,0], // start rotation in degree
-            move: i != 9, // dynamic or statique
-            density: 4,
-            friction: 1,
-            restitution: 0,
-            kinematic: false,
-            belongsTo: 1, // The bits of the collision groups to which the shape belongs.
-            collidesWith: 0xffffffff // The bits of the collision groups with which the shape collides.
-        }));
-        y += 3.5;
-    }
-
-// this makes the joints
-
-for (var i = 0; i < 9; i++)
-{
-oimo_world.add({ type:'jointBall', body1:oimo_chain[i], body2:oimo_chain[i + 1], pos1:[0,1.75, 0], pos2:[0,-1.75, 0], collision:true  });
-}
-
 (function (){
     var pos = [-10,15,0];
     var src = world.add({
@@ -119,7 +57,7 @@ var shape_groups = {
         next_index:-1
     }
 }
-//Setup projectiles(Projectile_count, Projectile size)
+//Setup projectiles
 setup_projectiles(100,1.5);
 function setup_projectiles(projectile_count,projectile_size){
     shape_groups["projectiles"]["start"] = shapes.length;
