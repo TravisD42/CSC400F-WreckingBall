@@ -11,7 +11,7 @@ var world = new OIMO.World({
 (function (){
     var o_ground = world.add({
         type: 'box', // type of shape : sphere, box, cylinder 
-        size: [40, 2, 40], // size of shape
+        size: [40, 2, 50], // size of shape
         pos: [0, 0, 0], // start position in degree
         move: false, // dynamic or static
         density: 1,
@@ -22,6 +22,57 @@ var world = new OIMO.World({
     attachOimoObjectToShape('ground',o_ground);
     attachMaterialToShape('ground');
 })();
+
+(function (){
+    for(let i = 0; i < 5; i++)
+    {
+        var y = 15;
+        var test = world.add({
+            type: 'box', // type of shape : sphere, box, cylinder 
+            size: [1.5, 1.5, 1.5], // size of shape
+            pos: [0, y, 0], // start position in degree
+            move: false, // dynamic or static
+            density: 1,
+            friction: 1,
+            restitution: 0.9,
+            belongsTo:2
+        });
+        attachOimoObjectToShape('anchored_point', test);
+        attachMaterialToShape('anchored_point');
+        y = y - 3;
+    }
+})();
+
+// (function (){
+// var y = 8;
+// for (var i = 0; i < 5; i++)
+// {
+//     var chain_pos = [-12, y, 0];
+//     var chain = world.add({ 
+//         type:'box', // type of shape : sphere, box, cylinder 
+//         size: [1.5], // size of shape
+//         pos: pos, // start position in degree
+//         rot:[0,0,0], // start rotation in degree
+//         move: i != 4, // dynamic or statique
+//         density: 4,
+//         friction: 1,
+//         restitution: 0,
+//         kinematic: false,
+//         belongsTo: 1, // The bits of the collision groups to which the shape belongs.
+//         collidesWith: 0xffffffff // The bits of the collision groups with which the shape collides.
+//     });
+//     y += 3.5;
+//     attachOimoObjectToShape('chain',chain, pos);
+//     attachMaterialToShape('chain');
+// };
+
+// // this makes the joints
+
+// for (var i = 0; i < 4; i++)
+// {
+// chain.add({ type:'jointBall', body1:chain[i], body2:chain[i + 1], pos1:[0,1.75, 0], pos2:[0,-1.75, 0], collision:true  });
+// }
+
 
 (function (){
     var pos = [-10,15,0];
@@ -55,8 +106,41 @@ var shape_groups = {
         start:-1,
         end:-1,
         next_index:-1
+    },
+    links:{
+        start: -1,
+        end: -1,
+        next_index: -1
     }
 }
+
+//Setup chain
+setup_chain(5,1.5);
+function setup_chain(link_count,link_size){
+    shape_groups["links"]["start"] = shapes.length;
+    shape_groups["links"]["next_index"] = shapes.length;
+    for(var i=0;i<link_count;i++){
+        var proj_id = 'proj_'+i;
+
+        registerShape(proj_id,[1,0,0]);
+        var proj_oimo = world.add({
+            type: 'box',
+            size: [link_size,link_size,link_size],
+            pos: [0, -100, 0],
+            rot:[0,0,0],
+            move: true, 
+            density: 20,
+            friction: 0.2,
+            restitution: 0.8,
+            belongsTo:1,
+            collidesWith:2
+        });
+        attachOimoObjectToShape(proj_id,proj_oimo,[0, -100, 0]);
+        attachMaterialToShape(proj_id);
+    }
+    shape_groups["links"]["end"] = shapes.length;
+}
+
 //Setup projectiles
 setup_projectiles(100,1.5);
 function setup_projectiles(projectile_count,projectile_size){
@@ -111,7 +195,7 @@ function reset_projectiles(){
 }
 
 //Setup wall for first time
-setup_wall([10,1,0]);
+setup_wall([20,1,0]);
 function setup_wall(origin){
     shape_groups["bricks"]["start"] = shapes.length;
     var brick_size = 3;
