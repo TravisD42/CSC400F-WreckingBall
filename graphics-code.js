@@ -91,6 +91,11 @@ function Draw(now) {
 }
 
 var drawinCube = new Cube();
+
+var sphere = new WrappedSphere(72, 36, 0, 360);
+sphere.Initialize();
+var drawingShape = sphere;
+
 function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3, arg4) {
     for (i in shapes) {
         gl.useProgram(shader_program);
@@ -141,6 +146,7 @@ function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3
 
                 //drawinCube.SetColor(shape.color);
                 drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
+                drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
             }
         }
     }
