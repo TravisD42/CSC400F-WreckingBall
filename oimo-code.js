@@ -23,29 +23,104 @@ var world = new OIMO.World({
     attachMaterialToShape('ground');
 })();
 
-(function (){
-    var y = 15;
-    for(let i = 0; i < 5; i++)
-    {
-        var test = 'test_'+i;
-        var testProj = 'testProj_'+i;
-        registerShape(testProj,[1,0,0]);
-        var test = world.add({
-            type: 'box', // type of shape : sphere, box, cylinder 
-            size: [1.5, 1.5, 1.5], // size of shape
-            pos: [0, y, 0], // start position in degree
-            move: false, // dynamic or static
-            density: 1,
-            friction: 1,
-            restitution: 0.9,
-            belongsTo:2
-        });
-        
-        attachOimoObjectToShape(testProj,test);
-        attachMaterialToShape(testProj);
-        y = y - 3;
-    }
-})();
+// (function (){
+//     var y = 18;
+//     for(let i = 0; i < 2; i++)
+//     {
+//         var test = 'test_'+i;
+//         var testProj = 'testProj_'+i;
+//         registerShape(testProj,[1,0,0]);
+//         var test = world.add({
+//             type: 'box', // type of shape : sphere, box, cylinder
+//             size: [1.5, 1.5, 1.5], // size of shape
+//             pos: [0, y, 0], // start position in degree
+//             move: i != 0, // dynamic or static
+//             density: 1,
+//             friction: 1,
+//             restitution: 0.9,
+//             belongsTo:2
+//         });
+//         console.log(test);
+//         attachOimoObjectToShape(testProj,test);
+//         attachMaterialToShape(testProj);
+//         y = y - 1.75;
+//     }
+
+        (function (){
+            var test1 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1.5, 1.5, 1.5], // size of shape
+                pos: [0, 15, 0], // start position in degree
+                move: false, // dynamic or static
+                density: 1,
+                friction: 1,
+                restitution: 0.9,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test1',test1);
+            attachMaterialToShape('test1');
+
+            var test2 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1.5, 1.5, 1.5], // size of shape
+                pos: [0, 13, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 1,
+                friction: 1,
+                restitution: 0.9,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test2',test2);
+            attachMaterialToShape('test2');
+
+            var joint = world.add({
+                type: 'jointBall',
+                body1: test1,
+                body2: test2,
+                pos1: [0, -1, 0],
+                pos2: [0, 1, 0],
+                collision: true
+            })
+
+        })();
+
+
+//         (function (){
+//             var test2 = world.add({
+//                 type: 'box', // type of shape : sphere, box, cylinder
+//                 size: [1.5, 1.5, 1.5], // size of shape
+//                 pos: [-10, 13, 0], // start position in degree
+//                 move: true, // dynamic or static
+//                 density: 1,
+//                 friction: 1,
+//                 restitution: 0.9,
+//                 belongsTo:2
+//             });
+//             attachOimoObjectToShape('test2',test2);
+//             attachMaterialToShape('test2');
+//         })();
+    
+// var joint = world.add({
+//     type: 'jointBall',
+//     body1: test1,
+//     body2: test2,
+//     pos1: [0,1.75,0],
+//     pos2: [0,-1.75,0]
+// })
+
+// for (let i = 0; i < 1; i++)
+// {
+//     var chain1 = 'chain_'+i;
+//     var testChain = 'testChain_'+i;
+//     registerShape(testChain,[1,0,0]);
+//     var chain = world.add({ 
+//         type:'jointBall',  
+//         body1:test, 
+//         body2:test.name
+//     });
+// }
+
+//})();
 
 // (function (){
 // var y = 8;
@@ -118,32 +193,32 @@ var shape_groups = {
     }
 }
 
-//Setup chain
-setup_chain(5,1.5);
-function setup_chain(link_count,link_size){
-    shape_groups["links"]["start"] = shapes.length;
-    shape_groups["links"]["next_index"] = shapes.length;
-    for(var i=0;i<link_count;i++){
-        var proj_id = 'proj_'+i;
+// //Setup chain
+// setup_chain(5,1.5);
+// function setup_chain(link_count,link_size){
+//     shape_groups["links"]["start"] = shapes.length;
+//     shape_groups["links"]["next_index"] = shapes.length;
+//     for(var i=0;i<link_count;i++){
+//         var proj_id = 'proj_'+i;
 
-        registerShape(proj_id,[1,0,0]);
-        var proj_oimo = world.add({
-            type: 'box',
-            size: [link_size,link_size,link_size],
-            pos: [0, -100, 0],
-            rot:[0,0,0],
-            move: true, 
-            density: 20,
-            friction: 0.2,
-            restitution: 0.8,
-            belongsTo:1,
-            collidesWith:2
-        });
-        attachOimoObjectToShape(proj_id,proj_oimo,[0, -100, 0]);
-        attachMaterialToShape(proj_id);
-    }
-    shape_groups["links"]["end"] = shapes.length;
-}
+//         registerShape(proj_id,[1,0,0]);
+//         var proj_oimo = world.add({
+//             type: 'box',
+//             size: [link_size,link_size,link_size],
+//             pos: [0, -100, 0],
+//             rot:[0,0,0],
+//             move: true, 
+//             density: 20,
+//             friction: 0.2,
+//             restitution: 0.8,
+//             belongsTo:1,
+//             collidesWith:2
+//         });
+//         attachOimoObjectToShape(proj_id,proj_oimo,[0, -100, 0]);
+//         attachMaterialToShape(proj_id);
+//     }
+//     shape_groups["links"]["end"] = shapes.length;
+// }
 
 //Setup projectiles
 setup_projectiles(100,1.5);

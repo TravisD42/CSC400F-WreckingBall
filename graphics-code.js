@@ -7,7 +7,9 @@ var phongShader = new Shader("phong_vertex_shader", "phong_fragment_shader");
 
 registerShape('ground',[0.3,0.3,0.3]);
 registerShape('launcher_source',[1,1,1]);
-//registerShape('anchored_point', [1,1,1]);
+registerShape('test1',[1,1,1]);
+registerShape('test2',[1,1,1]);
+
 
 //Projection matrix
 var prj = mat4.create();
@@ -147,7 +149,7 @@ function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3
 
                 //drawinCube.SetColor(shape.color);
                 drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
-                //drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
+               //drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
             }
         }
     }
