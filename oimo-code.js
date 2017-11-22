@@ -27,6 +27,9 @@ var world = new OIMO.World({
     var y = 15;
     for(let i = 0; i < 5; i++)
     {
+        var test = 'test_'+i;
+        var testProj = 'testProj_'+i;
+        registerShape(testProj,[1,0,0]);
         var test = world.add({
             type: 'box', // type of shape : sphere, box, cylinder 
             size: [1.5, 1.5, 1.5], // size of shape
@@ -37,8 +40,9 @@ var world = new OIMO.World({
             restitution: 0.9,
             belongsTo:2
         });
-        attachOimoObjectToShape('anchored_point', test);
-        attachMaterialToShape('anchored_point');
+        
+        attachOimoObjectToShape(testProj,test);
+        attachMaterialToShape(testProj);
         y = y - 3;
     }
 })();
