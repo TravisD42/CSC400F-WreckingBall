@@ -24,9 +24,9 @@ var world = new OIMO.World({
 })();
 
 (function (){
+    var y = 15;
     for(let i = 0; i < 5; i++)
     {
-        var y = 15;
         var test = world.add({
             type: 'box', // type of shape : sphere, box, cylinder 
             size: [1.5, 1.5, 1.5], // size of shape
