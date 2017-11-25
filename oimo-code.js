@@ -25,7 +25,7 @@ var world = new OIMO.World({
 
 // (function (){
 //     var y = 18;
-//     for(let i = 0; i < 2; i++)
+//     for(var i = 0; i < 8; i++)
 //     {
 //         var test = 'test_'+i;
 //         var testProj = 'testProj_'+i;
@@ -40,21 +40,36 @@ var world = new OIMO.World({
 //             restitution: 0.9,
 //             belongsTo:2
 //         });
-//         console.log(test);
 //         attachOimoObjectToShape(testProj,test);
 //         attachMaterialToShape(testProj);
 //         y = y - 1.75;
-//     }
+
+//         console.log(test);
+
+//         //for (var j = 0; j < 7; j++)
+//         //{
+//             var testchain = world.add({
+//                 type: 'jointBall',
+//                 body1: test,
+//                 body2: testProj,
+//                 pos1: [0, 1.75, 0],
+//                 pos2: [0, -1.75, 0],
+//                 collision: true
+//              })
+//         //}
+//     }   
+
+// })();
 
         (function (){
             var test1 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
-                size: [1.5, 1.5, 1.5], // size of shape
-                pos: [0, 15, 0], // start position in degree
+                size: [1], // size of shape
+                pos: [0, 19, 0], // start position in degree
                 move: false, // dynamic or static
-                density: 1,
+                density: 20,
                 friction: 1,
-                restitution: 0.9,
+                restitution: 0.1,
                 belongsTo:2
             });
             attachOimoObjectToShape('test1',test1);
@@ -62,96 +77,195 @@ var world = new OIMO.World({
 
             var test2 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
-                size: [1.5, 1.5, 1.5], // size of shape
-                pos: [0, 13, 0], // start position in degree
+                size: [1], // size of shape
+                pos: [0, 18, 0], // start position in degree
                 move: true, // dynamic or static
-                density: 1,
+                density: 20,
                 friction: 1,
-                restitution: 0.9,
+                restitution: 0.1,
                 belongsTo:2
             });
             attachOimoObjectToShape('test2',test2);
             attachMaterialToShape('test2');
 
-            var joint = world.add({
-                type: 'jointBall',
-                body1: test1,
-                body2: test2,
-                pos1: [0, -1, 0],
-                pos2: [0, 1, 0],
-                collision: true
-            })
+            var test3 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 17, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test3',test3);
+            attachMaterialToShape('test3');
 
-        })();
+            var test4 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 16, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test4',test4);
+            attachMaterialToShape('test4');
 
+            var test5 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 15, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test5',test5);
+            attachMaterialToShape('test5');
 
-//         (function (){
-//             var test2 = world.add({
-//                 type: 'box', // type of shape : sphere, box, cylinder
-//                 size: [1.5, 1.5, 1.5], // size of shape
-//                 pos: [-10, 13, 0], // start position in degree
-//                 move: true, // dynamic or static
-//                 density: 1,
-//                 friction: 1,
-//                 restitution: 0.9,
-//                 belongsTo:2
-//             });
-//             attachOimoObjectToShape('test2',test2);
-//             attachMaterialToShape('test2');
-//         })();
-    
-// var joint = world.add({
-//     type: 'jointBall',
-//     body1: test1,
-//     body2: test2,
-//     pos1: [0,1.75,0],
-//     pos2: [0,-1.75,0]
-// })
+            var test6 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 14, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test6',test6);
+            attachMaterialToShape('test6');
 
-// for (let i = 0; i < 1; i++)
-// {
-//     var chain1 = 'chain_'+i;
-//     var testChain = 'testChain_'+i;
-//     registerShape(testChain,[1,0,0]);
-//     var chain = world.add({ 
-//         type:'jointBall',  
-//         body1:test, 
-//         body2:test.name
-//     });
-// }
+            var test7 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 13, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test7',test7);
+            attachMaterialToShape('test7');
 
-//})();
+            var test8 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 12, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test8',test8);
+            attachMaterialToShape('test8');
 
-// (function (){
-// var y = 8;
-// for (var i = 0; i < 5; i++)
-// {
-//     var chain_pos = [-12, y, 0];
-//     var chain = world.add({ 
-//         type:'box', // type of shape : sphere, box, cylinder 
-//         size: [1.5], // size of shape
-//         pos: pos, // start position in degree
-//         rot:[0,0,0], // start rotation in degree
-//         move: i != 4, // dynamic or statique
-//         density: 4,
-//         friction: 1,
-//         restitution: 0,
-//         kinematic: false,
-//         belongsTo: 1, // The bits of the collision groups to which the shape belongs.
-//         collidesWith: 0xffffffff // The bits of the collision groups with which the shape collides.
-//     });
-//     y += 3.5;
-//     attachOimoObjectToShape('chain',chain, pos);
-//     attachMaterialToShape('chain');
-// };
+            var test9 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 11, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test9',test9);
+            attachMaterialToShape('test9');
 
-// // this makes the joints
+            var test10 = world.add({
+                type: 'box', // type of shape : sphere, box, cylinder
+                size: [1], // size of shape
+                pos: [0, 10, 0], // start position in degree
+                move: true, // dynamic or static
+                density: 20,
+                friction: 1,
+                restitution: 0.1,
+                belongsTo:2
+            });
+            attachOimoObjectToShape('test10',test10);
+            attachMaterialToShape('test10');
 
-// for (var i = 0; i < 4; i++)
-// {
-// chain.add({ type:'jointBall', body1:chain[i], body2:chain[i + 1], pos1:[0,1.75, 0], pos2:[0,-1.75, 0], collision:true  });
-// }
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test1,
+            body2: test2,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        })  
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test2,
+            body2: test3,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        })  
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test3,
+            body2: test4,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test4,
+            body2: test5,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test5,
+            body2: test6,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test6,
+            body2: test7,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test7,
+            body2: test8,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test8,
+            body2: test9,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test9,
+            body2: test10,
+            pos1: [0, -0.75, 0],
+            pos2: [0, 0.75, 0],
+            collision: true
+        })   
 
+ })();
 
 (function (){
     var pos = [-10,15,0];

@@ -9,6 +9,15 @@ registerShape('ground',[0.3,0.3,0.3]);
 registerShape('launcher_source',[1,1,1]);
 registerShape('test1',[1,1,1]);
 registerShape('test2',[1,1,1]);
+registerShape('test3',[1,1,1]);
+registerShape('test4',[1,1,1]);
+registerShape('test5',[1,1,1]);
+registerShape('test6',[1,1,1]);
+registerShape('test7',[1,1,1]);
+registerShape('test8',[1,1,1]);
+registerShape('test9',[1,1,1]);
+registerShape('test10',[1,1,1]);
+
 
 
 //Projection matrix
