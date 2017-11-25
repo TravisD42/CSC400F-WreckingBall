@@ -17,6 +17,10 @@ registerShape('test7',[1,1,1]);
 registerShape('test8',[1,1,1]);
 registerShape('test9',[1,1,1]);
 registerShape('test10',[1,1,1]);
+registerShape('test11',[1,1,1]);
+registerShape('test12',[1,1,1]);
+registerShape('test13',[1,1,1]);
+
 
 
 
@@ -155,10 +159,21 @@ function drawAllShapes(mdv, shader_program, shader_1, shader_2, arg1, arg2, arg3
                 } else {//if no material but u_color still needs to be set for wireframe/normals drawing:
                     gl.uniform4fv(phongShader.program.solid_color_uniform_handle, [0.5, 1, 1, 1]);
                 }
-
-                //drawinCube.SetColor(shape.color);
-                drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
-               //drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
+                
+                drawinCube.SetColor(shape.color);
+               if(i > 14)
+               {
+                drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);   
+               }
+               else if (i == 0)
+               {
+                drawinCube.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);   
+               }
+               else
+               {
+                drawingShape.Draw(shader_1, shader_2, arg1, arg2, arg3, arg4);
+               }
+               
             }
         }
     }
