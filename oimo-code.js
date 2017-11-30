@@ -67,7 +67,7 @@ var test1 = {};
             test1 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 24, 0], // start position in degree
+                pos: [6, 30, 0], // start position in degree
                 move: false, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -80,7 +80,7 @@ var test1 = {};
             var test2 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 22, 0], // start position in degree
+                pos: [6, 28, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -93,7 +93,7 @@ var test1 = {};
             var test3 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 20, 0], // start position in degree
+                pos: [6, 26, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -106,7 +106,7 @@ var test1 = {};
             var test4 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 18, 0], // start position in degree
+                pos: [6, 24, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -119,7 +119,7 @@ var test1 = {};
             var test5 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 16, 0], // start position in degree
+                pos: [6, 22, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -132,7 +132,7 @@ var test1 = {};
             var test6 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 14, 0], // start position in degree
+                pos: [6, 20, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -145,7 +145,7 @@ var test1 = {};
             var test7 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 12, 0], // start position in degree
+                pos: [6, 18, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -158,7 +158,7 @@ var test1 = {};
             var test8 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 10, 0], // start position in degree
+                pos: [6, 16, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -171,7 +171,7 @@ var test1 = {};
             var test9 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [1], // size of shape
-                pos: [8, 8, 0], // start position in degree
+                pos: [6, 14, 0], // start position in degree
                 move: true, // dynamic or static
                 density: 20,
                 friction: 1,
@@ -181,89 +181,83 @@ var test1 = {};
             attachOimoObjectToShape('test9',test9);
             attachMaterialToShape('test9');
 
-         test10 = world.add({
+            
+           var test10 = world.add({
+            type: 'box', // type of shape : sphere, box, cylinder
+            size: [1], // size of shape
+            pos: [5, 12, 0], // start position in degree
+            move: true, // dynamic or static
+            density: 20,
+            friction: 1,
+            restitution: 0.1,
+            belongsTo:2
+        });
+        attachOimoObjectToShape('test10',test10);
+        attachMaterialToShape('test10');
+
+        var test11 = world.add({
+            type: 'box', // type of shape : sphere, box, cylinder
+            size: [1], // size of shape
+            pos: [5, 10, 0], // start position in degree
+            move: true, // dynamic or static
+            density: 20,
+            friction: 1,
+            restitution: 0.1,
+            belongsTo:2
+        });
+        attachOimoObjectToShape('test11',test11);
+        attachMaterialToShape('test11');
+
+        var test12 = world.add({
+            type: 'box', // type of shape : sphere, box, cylinder
+            size: [1], // size of shape
+            pos: [5, 8, 0], // start position in degree
+            move: true, // dynamic or static
+            density: 20,
+            friction: 1,
+            restitution: 0.1,
+            belongsTo:2
+        });
+        attachOimoObjectToShape('test12',test12);
+        attachMaterialToShape('test12');
+
+         test13 = world.add({
                 type: 'box', // type of shape : sphere, box, cylinder
                 size: [2], // size of shape
-                pos: [-10, 22, 0], // start position in degree
+                pos: [-pow_slider.value * 0.33, ele_slider.value - -10, azi_slider.value], // start position in degree
                 move: false, // dynamic or static
                 density: 50,
                 friction: 1,
                 restituon: 0.1,
                 belongsTo:2
             });
-            attachOimoObjectToShape('test10',test10);
-            attachMaterialToShape('test10');
+            attachOimoObjectToShape('test13',test13);
+            attachMaterialToShape('test13');
 
-        //    var test11 = world.add({
-        //     type: 'box', // type of shape : sphere, box, cylinder
-        //     size: [1], // size of shape
-        //     pos: [5, 12, 0], // start position in degree
-        //     move: true, // dynamic or static
-        //     density: 20,
-        //     friction: 1,
-        //     restitution: 0.1,
-        //     belongsTo:2
-        // });
-        // attachOimoObjectToShape('test11',test11);
-        // attachMaterialToShape('test11');
-
-        // var test12 = world.add({
-        //     type: 'box', // type of shape : sphere, box, cylinder
-        //     size: [1], // size of shape
-        //     pos: [5, 11, 0], // start position in degree
-        //     move: true, // dynamic or static
-        //     density: 20,
-        //     friction: 1,
-        //     restitution: 0.1,
-        //     belongsTo:2
-        // });
-        // attachOimoObjectToShape('test12',test12);
-        // attachMaterialToShape('test12');
-
-        // var test13 = world.add({
-        //     type: 'box', // type of shape : sphere, box, cylinder
-        //     size: [1], // size of shape
-        //     pos: [5, 10, 0], // start position in degree
-        //     move: true, // dynamic or static
-        //     density: 20,
-        //     friction: 1,
-        //     restitution: 0.1,
-        //     belongsTo:2
-        // });
-        // attachOimoObjectToShape('test13',test13);
-        // attachMaterialToShape('test13');
 
         document.addEventListener('keydown',function(e){
             switch(e.keyCode){
                 case 88:
-                test10.linearVelocity.x = pow_slider.value * 5;
-                test10.linearVelocity.y = ele_slider.value * 5;
-                test10.linearVelocity.z = azi_slider.value * 5;
+                test13.linearVelocity.x = pow_slider.value * 5;
+                test13.linearVelocity.y = ele_slider.value * 5;
+                test13.linearVelocity.z = azi_slider.value * 5;
                 break;
 
-                case 65:
-                    //test10.pos.x = document.getElementById('slider-azimuth').value;
-                    //test10.move = true;
-                    //test10.isDynamic = true;
-                    //test10.isStatic = test10.isKinematic = false;
-                    //test10.inverseMass = 1.0 / test10.mass;
-                    test10.setupMass(1);
-                    test10.linearVelocity.y = pow_slider.value * 0.1;
-                    test10.linearVelocity.y = ele_slider.value * 0.1;
+                case 86: // v
+                    test13.resetPosition(-pow_slider.value * 0.33, ele_slider.value - -10, azi_slider.value);
+                    world.step();
+                    test13.setupMass(1);
                     console.log("attempted to launch");
                     break;
 
-                case 68:
-                    //test10.pos.x = document.getElementById('slider-azimuth').value;
-                    test10.resetPosition(-10, 22, 0); 
-                   // test1.resetPosition(8, Number(ele_slider.value + 24) ,0)                   
-                    test10.setupMass(0);
-                    test10.resetPosition(-10, 22, 0);
+                case 66: // b    
+                    test13.resetPosition(-pow_slider.value * 0.33, ele_slider.value - -10, azi_slider.value);
+                    world.step();              
+                    test13.setupMass(0);
                     break;
-                    
 
                 default:
-                break;
+                    break;
             }
         });
 
@@ -335,6 +329,30 @@ var test1 = {};
             type: 'jointBall',
             body1: test9,
             body2: test10,
+            pos1: [0, -1, 0],
+            pos2: [0, 1, 0],
+            collision: false
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test10,
+            body2: test11,
+            pos1: [0, -1, 0],
+            pos2: [0, 1, 0],
+            collision: false
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test11,
+            body2: test12,
+            pos1: [0, -1, 0],
+            pos2: [0, 1, 0],
+            collision: false
+        }) 
+        var joint = world.add({
+            type: 'jointBall',
+            body1: test12,
+            body2: test13,
             pos1: [0, -1.5, 0],
             pos2: [0, 1.5, 0],
             collision: false
@@ -524,7 +542,7 @@ function setup_wall(origin){
                     size: [b_x,b_y,b_z],
                     pos: brick_pos,
                     move: true, 
-                    density: 10,
+                    density: 1,
                     friction: 0.2,
                     restitution: 0.05,
                     belongsTo:2
